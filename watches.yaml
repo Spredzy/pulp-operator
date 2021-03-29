@@ -1,5 +1,5 @@
 ---
 - version: v1beta1
-  group: pulp.pulpproject.org
-  kind: Pulp
+  group: hub.ansible.com
+  kind: AutomationHub
   playbook: playbook.yml

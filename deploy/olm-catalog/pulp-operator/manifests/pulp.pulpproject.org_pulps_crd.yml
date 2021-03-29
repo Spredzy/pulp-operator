@@ -1,14 +1,14 @@
 apiVersion: apiextensions.k8s.io/v1
 kind: CustomResourceDefinition
 metadata:
-  name: pulps.pulp.pulpproject.org
+  name: automationhubs.hub.ansible.com
 spec:
-  group: pulp.pulpproject.org
+  group: hub.ansible.com
   names:
-    kind: Pulp
-    listKind: PulpList
-    plural: pulps
-    singular: pulp
+    kind: AutomationHub
+    listKind: AutomationHubList
+    plural: automationhubs
+    singular: automationhub
   scope: Namespaced
   versions:
   - name: v1beta1
@@ -97,6 +97,7 @@ spec:
               pulp_storage_type:
                 description: Configuration for the storage type to be utilized
                 type: string
+                default: File
                 enum:
                   - file
                   - File
@@ -110,13 +111,14 @@ spec:
                   access_mode:
                     description: The file storage access mode.
                     type: string
-                    default: ReadWriteMany
+                    default: ReadWriteOnce
                     enum:
                       - ReadWriteMany
                       - ReadWriteOnce
                   size:
                     description: The size of the file storage; for example 100Gi.
                     type: string
+                    default: 2Gi
                 type: object
               pulp_object_storage_s3_secret:
                 description: The secret for S3 compliant object storage configuration.
